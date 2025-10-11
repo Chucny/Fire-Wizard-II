@@ -73,7 +73,7 @@ except Exception as e:
     print("Failed to load wand:", e)
 
 opponent = Entity(
-    model=safe_model('wizard.obj'),
+    model='wizard',
     scale=1.8,
     rotation=(-22,0,45),
     enabled=False
