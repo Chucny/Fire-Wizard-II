@@ -75,7 +75,7 @@ except Exception as e:
 opponent = Entity(
     model='wizard',
     scale=1.8,
-    rotation=(-22,0,45),
+    rotation=(-22,0,45), collider='mesh',
     enabled=False
 )
 opponent.health = 10
@@ -214,3 +214,4 @@ def update():
 # ===== EXIT HANDLER =====
 app.on_exit = quit_game_safely
 app.run()
+
