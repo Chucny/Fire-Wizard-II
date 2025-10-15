@@ -8,6 +8,7 @@ from networking import NetworkConnection
 from safe_debug_functions_not_needed import *
 
 
+
 # ===== INPUT =====
 op_ip = input("Enter opponent IP (leave blank to host): ").strip()
 playername = input("Enter your name: ").strip() or "Player"
@@ -17,7 +18,11 @@ opponentscore = 0
 
 sys.excepthook = handle_exception
 
-
+aga = input("Custom crosshair? Press enter if not, write something if yes. ")
+if aga == "":
+    crosshair=False
+else:
+    crosshair=True
 # ===== URSINA SETUP =====
 app = Ursina()
 window.fullscreen = True
@@ -30,7 +35,31 @@ floor = Entity(
     collider='box',
     texture='grass'
 )
+def make_crosshair(size=0.005, color=color.white):
+    # Makes a crosshair
+    crosshair = Entity(parent=camera.ui)
 
+    # Horizontal bar
+    Entity(
+        parent=crosshair,
+        model='quad',
+        scale=(size * 4, size),
+        color=color,
+        position=(0, 0, 0)
+    )
+
+    # Vertical bar
+    Entity(
+        parent=crosshair,
+        model='quad',
+        scale=(size, size * 4),
+        color=color,
+        position=(0, 0, 0)
+    )
+
+    return crosshair
+if crosshair ==  True:
+    make_crosshair()
 # ===== NETWORK =====
 conn = NetworkConnection(is_host=is_host, peer_ip=None if is_host else op_ip)
 conn.start()
