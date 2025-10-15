@@ -23,11 +23,18 @@ if aga == "":
     crosshair=False
 else:
     crosshair=True
+
+FOV = input("FOV? Press enter for deafult or enter yhe FOV you want. ")
+if FOV == "":
+    fov1 = 90
+else:
+    fov1 = int(FOV)
 # ===== URSINA SETUP =====
 app = Ursina()
 window.fullscreen = True
 
 Sky()
+camera.fov = fov1
 
 floor = Entity(
     model='cube',
