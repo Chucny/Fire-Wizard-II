@@ -5,13 +5,8 @@ import time
 from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 from networking import NetworkConnection
+from safe_debug_functions_not_needed import *
 
-# ===== DEBUG EXCEPTIONS =====
-def handle_exception(exc_type, exc_value, exc_traceback):
-    print("!!! UNCAUGHT EXCEPTION !!!")
-    traceback.print_exception(exc_type, exc_value, exc_traceback)
-    input("Press Enter to exit...")
-sys.excepthook = handle_exception
 
 # ===== INPUT =====
 op_ip = input("Enter opponent IP (leave blank to host): ").strip()
@@ -20,31 +15,14 @@ is_host = (op_ip == "")
 playerscore = 0
 opponentscore = 0
 
-# ===== ASSET PATH HELPERS =====
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.excepthook = handle_exception
 
-def safe_model(path):
-    full_path = os.path.join(BASE_DIR, path)
-    if not os.path.exists(full_path):
-        print(f"WARNING: model {full_path} not found, using 'cube'")
-        return 'cube'
-    return full_path
-
-def safe_texture(path):
-    full_path = os.path.join(BASE_DIR, path)
-    if not os.path.exists(full_path):
-        print(f"WARNING: texture {full_path} not found, using None")
-        return None
-    return full_path
 
 # ===== URSINA SETUP =====
 app = Ursina()
-window.fullscreen = False
+window.fullscreen = True
 
-try:
-    Sky()
-except Exception:
-    print("Failed to load Sky")
+Sky()
 
 floor = Entity(
     model='cube',
@@ -70,12 +48,12 @@ try:
         scale=0.26
     )
 except Exception as e:
-    print("Failed to load wand:", e)
+    print("Wand not loaded:", e)
 
 opponent = Entity(
     model='wizard',
     scale=1.8,
-    rotation=(-22,0,45), collider='mesh',
+    rotation=(-22,0,45),
     enabled=False
 )
 opponent.health = 10
@@ -214,4 +192,3 @@ def update():
 # ===== EXIT HANDLER =====
 app.on_exit = quit_game_safely
 app.run()
-
