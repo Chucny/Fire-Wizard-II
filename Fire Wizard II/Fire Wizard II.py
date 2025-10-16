@@ -11,7 +11,7 @@ from safe_debug_functions_not_needed import *
 
 
 
-#input
+# ===== INPUT =====
 op_ip = input("Enter opponent IP (leave blank to host): ").strip()
 playername = input("Enter your name: ").strip() or "Player"
 is_host = (op_ip == "")
@@ -31,7 +31,7 @@ if FOV == "":
     fov1 = 90
 else:
     fov1 = int(FOV)
-#ursina
+# ===== URSINA SETUP =====
 app = Ursina()
 window.fullscreen = True
 
@@ -91,7 +91,7 @@ except Exception as e:
 opponent = Entity(
     model='wizard',
     scale=1.8,
-    rotation=(0,0,0),
+    rotation=(0, 0, 0),
     enabled=False
 )
 opponent.health = 10
@@ -169,6 +169,10 @@ def update():
                 opponentscore += 1
                 player.health = 10
                 player.position = Vec3(0,6,0)
+                print(playerscore)
+                print("-")
+                print(opponentscore)
+
 
     # --- SEND PLAYER POS ---
     try:
@@ -208,6 +212,9 @@ def update():
                 opponent.enabled = False
                 opponent.position = Vec3(0,-999,0)
                 opponent.health = 10
+                print(playerscore)
+                print("-")
+                print(opponentscore)
 
         # Player hit
         if b.color==color.orange and distance(b.position,player.position)<1:
@@ -233,5 +240,3 @@ def update():
 # ===== EXIT HANDLER =====
 app.on_exit = quit_game_safely
 app.run()
-
-
