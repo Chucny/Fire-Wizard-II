@@ -1,3 +1,5 @@
+#imports
+
 import sys
 import traceback
 import os
@@ -9,7 +11,7 @@ from safe_debug_functions_not_needed import *
 
 
 
-# ===== INPUT =====
+#input
 op_ip = input("Enter opponent IP (leave blank to host): ").strip()
 playername = input("Enter your name: ").strip() or "Player"
 is_host = (op_ip == "")
@@ -29,7 +31,7 @@ if FOV == "":
     fov1 = 90
 else:
     fov1 = int(FOV)
-# ===== URSINA SETUP =====
+#ursina
 app = Ursina()
 window.fullscreen = True
 
@@ -122,7 +124,10 @@ def input(key):
         mouse.locked = not mouse.locked
     if key == 'o':
         quit_game_safely()
-
+    if key == 'i':
+        window.fullscreen = True
+    if key == 'k':
+        window.fullscreen = False
 def quit_game_safely():
     try:
         conn.close()
