@@ -7,7 +7,8 @@ WASD: walk
 <br>
 O: exit
 <br>
-E: unlock mouse
+E: unlock mouse<br> I, K: Toggle fullscreen <br> Screenshots in the screenshots folder!
+<br><img src="/screenshots/Screenshot_4.png"></img>
 <br><br>
 <strong>
 Copyright (C) Chucny 2025</strong>
