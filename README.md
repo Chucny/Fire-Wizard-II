@@ -4,7 +4,7 @@
 <body>
 <p>
 A wizard PVP FPS game. Uses P2P.<br>
-Uses the Ursina library.</p>p><br>
+Uses the Ursina library.</p><br>
 <h3>Controls</h3><br>
 Left click: shoot <br>
 WASD: walk
