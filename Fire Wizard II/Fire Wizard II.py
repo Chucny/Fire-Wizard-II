@@ -160,7 +160,7 @@ def update():
         elif t == 'shoot':
             pos = msg.get('pos',[0,0,0])
             dir = msg.get('dir',[0,0,1])
-            b = Entity(model='sphere', color=color.blue, scale=0.3, position=Vec3(*pos))
+            b = Entity(model='sphere', color=color.orange, scale=0.3, position=Vec3(*pos))
             b.direction = Vec3(*dir)
             bullets.append(b)
         elif t == 'hit':
@@ -210,7 +210,7 @@ def update():
                 opponent.health = 10
 
         # Player hit
-        if b.color==color.blue and distance(b.position,player.position)<1:
+        if b.color==color.orange and distance(b.position,player.position)<1:
             player.health -= 1
             remove_list.append(b)
             player.position = Vec3(player.position.x,3,player.position.z)
@@ -233,4 +233,5 @@ def update():
 # ===== EXIT HANDLER =====
 app.on_exit = quit_game_safely
 app.run()
+
 
