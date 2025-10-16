@@ -1,6 +1,6 @@
-<!doctype html>
+
 <html>
-<head><h2> Fire Wizard</h2></head>
+<head><h2> Fire Wizard II</h2></head>
 <body>
 <p>
 A wizard PVP FPS game. Uses P2P.<br>
