@@ -15,12 +15,16 @@ from login import *
 JSON = {
     "users": {
         "echoofbeans": {
-            "salt": "o0sFnA62LO5yc60JRFeS+Q==",
-            "encrypted": "gAAAAABpFwnL1xpu32hnGuCIOgMONahW1xiSgzgWSBNSqWZ40mx2cD9-Xmifs5J_mZIMdksADoQy-XXFRpFFFpzl-SRFsjY2lA=="
+            "salt": "hyTQkS4aN+G30nmliL4eew==",
+            "encrypted": "gAAAAABpFw1lxrHa1uQ3uzcwCiKKZ0WgAh8s0hpGaISKR3FhaJBK32gXfiWyjwCF4XEDoxZILtf4naFaPNVC9hEtJGZaM5OI1g=="
         },
         "chucny": {
-            "salt": "ra9rJjZhIJlNsBVbP2kDAA==",
-            "encrypted": "gAAAAABpFwnuhi3uhSZCU1w7ROts6YfW0qySP1xT2XxgwGeYwV0JotnTSULG5Nc9NVwBjHyzc-qkP8YvUajFIsbRqTCDIjcFSA=="
+            "salt": "ksH2ICoXQvu65tFjSNqMkw==",
+            "encrypted": "gAAAAABpFw1tpjvJahmsmsEiHwd3vARomiPZ6cFlhfy_CcnWSuVHwyEJ55mTGTtgv8_CDqZCknZGGoSWUb1iRKJUrxPb1DNIsQ=="
+        },
+        "kamelinkullinlutkuttaja": {
+            "salt": "j1g5iimFE289uFrcdU0dcg==",
+            "encrypted": "gAAAAABpFw2b_DJBRPAxjPRMmXWtCeiUl69QGXukVEMDHBzo2YdsHwqmjRlCF6UXcJ0-JkJT8vzdQvdQajvUtJwIQHKaxtn8eLpqs-6jiBB8iPE8B7Xgzus="
         }
     }
 }
@@ -267,3 +271,4 @@ def update():
 # ===== EXIT HANDLER =====
 app.on_exit = quit_game_safely
 app.run()
+
