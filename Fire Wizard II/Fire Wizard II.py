@@ -8,12 +8,39 @@ from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 from networking import NetworkConnection
 from safe_debug_functions_not_needed import *
-
-
+from file_utils import *
+from login import *
 
 # ===== INPUT =====
+JSON = {
+    "users": {
+        "echoofbeans": {
+            "salt": "o0sFnA62LO5yc60JRFeS+Q==",
+            "encrypted": "gAAAAABpFwnL1xpu32hnGuCIOgMONahW1xiSgzgWSBNSqWZ40mx2cD9-Xmifs5J_mZIMdksADoQy-XXFRpFFFpzl-SRFsjY2lA=="
+        },
+        "chucny": {
+            "salt": "ra9rJjZhIJlNsBVbP2kDAA==",
+            "encrypted": "gAAAAABpFwnuhi3uhSZCU1w7ROts6YfW0qySP1xT2XxgwGeYwV0JotnTSULG5Nc9NVwBjHyzc-qkP8YvUajFIsbRqTCDIjcFSA=="
+        }
+    }
+}
+loginn = input("Login? Press enter to login as guest.")
+if loginn == "":
+   print("Logged in as guest...")
+else:
+    a = login(JSON)
+    if a == False:
+        exit_(0)
+    else:
+        print("logged in as " + a)
+
 op_ip = input("Enter opponent IP (leave blank to host): ").strip()
-playername = input("Enter your name: ").strip() or "Player"
+
+if loginn != "":
+    playername = a.strip() or "Player"
+else:
+    playername = "Guest: "+input("Enter your name: ").strip() or "Player"
+    
 is_host = (op_ip == "")
 playerscore = 0
 opponentscore = 0
