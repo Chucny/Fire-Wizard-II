@@ -8,7 +8,7 @@ from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 from networking import NetworkConnection
 from safe_debug_functions_not_needed import *
-from file_utils import *
+
 
 # ===== INPUT =====
 
@@ -243,3 +243,4 @@ def update():
 # ===== EXIT HANDLER =====
 app.on_exit = quit_game_safely
 app.run()
+
