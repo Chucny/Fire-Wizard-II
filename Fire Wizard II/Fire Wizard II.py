@@ -9,45 +9,13 @@ from ursina.prefabs.first_person_controller import FirstPersonController
 from networking import NetworkConnection
 from safe_debug_functions_not_needed import *
 from file_utils import *
-from login import *
 
 # ===== INPUT =====
-JSON = {
-    "users": {
-        "chucny": {
-            "salt": "BJhgySNO6cnDK+O7/sjobw==",
-            "encrypted": "gAAAAABpFw8qiSbzKBYTaKn1hlftKvvKMCiAnZNEhZyHXvAUITHmtDEb5fbBKBFEO7ga3lXbEgyNPsOVdSVkki0G8sg9B6HV2Q=="
-        },
-        "echoofbeans": {
-            "salt": "al6br9XQTVcPafUrySTTXg==",
-            "encrypted": "gAAAAABpFw8wQdvq_2rC0KsVLc7nWJvoimKCBbI8oNg2u0D42tmsaJE98fLCvmxfbyLhfnEswrfLodPLCpA9mHxMrFbcEnup6g=="
-        },
-        "kamelinkullinlutkuttaja": {
-            "salt": "77b5w54z21AAzIerxJ1ArA==",
-            "encrypted": "gAAAAABpFw87Qp5klKYhkZHRcq53oCMVcXmvoIsjRMNuTtOxK1ZY8RaTa0X-QnEFWHwFPZX27hnqXBXE9foOlAAGOPj5HP2H3B0FwQnLnBLEF3upWTEKHLc="
-        },
-        "olleonnekke": {
-            "salt": "wsIjos7DhN2KuDBt9CinEQ==",
-            "encrypted": "gAAAAABpFw91kAz_MZeapiF8Tax9FHMORcN3UNZxuTyUHTc_PGiM0LoNCPgDdt-JUfTRoeHahs98L4umzDcRR1gGw8r_u8IR2Q=="
-        }
-    }
-}
-loginn = input("Login? Press enter to login as guest.")
-if loginn == "":
-   print("Logged in as guest...")
-else:
-    a = login(JSON)
-    if a == False:
-        exit_(0)
-    else:
-        print("logged in as " + a)
 
 op_ip = input("Enter opponent IP (leave blank to host): ").strip()
 
-if loginn != "":
-    playername = a.strip() or "Player"
-else:
-    playername = "Guest: "+input("Enter your name: ").strip() or "Player"
+
+playername = input("Enter your name: ").strip() or "Player"
     
 is_host = (op_ip == "")
 playerscore = 0
@@ -275,5 +243,3 @@ def update():
 # ===== EXIT HANDLER =====
 app.on_exit = quit_game_safely
 app.run()
-
-
